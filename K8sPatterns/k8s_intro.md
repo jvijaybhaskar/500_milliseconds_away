@@ -1,7 +1,6 @@
-Containers and Kubernetes notes
+# Containers and Kubernetes notes
 
 > status : work in progress
-
 
 
 * Apps used to be deployed on dedicated server
@@ -54,6 +53,35 @@ Is the tech that runs those containers
 ---
 
 > Check out Cloud build service by google
+
+
+
+
+---
+
+## Kubernetes
+
+####What is it ?
+User for managing Containers and orchestrate on prem or cloud.
+
+Declare a desired state instead of implict commands.
+
+#### A few features of K8s
+
+* Autoscaling
+* Run stateful/stateless jobs
+* Control resources and perf
+* Extensible
+
+### GKE - Managed K8s service
+
+Some of the features of the managed service are: 
+* Fully managed - VM/imfra etc
+* OS is optimised for Containerization
+* Autoupgrade version of K8
+* Autorepair k8s nodes
+* Integrated deployment pipeline, IAM, Stackdriver (Observability & Performance)
+
 
 
 
