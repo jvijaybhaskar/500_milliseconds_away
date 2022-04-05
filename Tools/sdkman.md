@@ -16,35 +16,65 @@ For the latest installation instructions, visit the [official installation guide
 
 ## Cheatsheet
 To check if SDKMAN! has been successfully installed:
-`sdk version`
+
+```sh
+sdk version
+```
 
 Install the latest stable version of JDK:
-`sdk install java`
 
-Install specific version of JDK:
-`sdk install java <>`
+```sh
+sdk install java
+```
+
+Install a specific version of JDK:
+
+```sh
+sdk install java <>
+```
 
 Setting default global JDK version:
-`sdk default java <lts>`
+
+```sh
+sdk default java <lts>
+```
 
 Remove an installed version:
-`sdk uninstall java <>`
+
+```sh
+sdk uninstall java <>
+```
 
 To see all available candidates:
-`sdk list`
+
+```sh
+sdk list
+```
 
 To see all available candidate versions:
-`sdk list java`
+```sh
+sdk list java
+```
 
 To use a candidate version:
-`sdk use java <>`
-Note: This will switch the version for the current shell only.
+
+```sh
+sdk use java <>
+#Note: This will switch the version for the current shell only.
+```
 
 What is currently in use for a candidate:
-`sdk current java`
+
+```sh
+sdk current java
+```
 
 The current version of all candidates:
-`sdk current`
+
+```sh
+sdk current
+
+```
 
 Switch to a specific JDK or SDK every time you visit a project
 
@@ -55,16 +85,20 @@ sdk env init
 nano .sdkmanrc 
 # add java=<version that your prefer> and save
 
-# Issue the following command to switch to configuration present in .sdkmanrc
+# Issue the following command to switch to the configuration present in .sdkmanrc
 set env
 
 ```
 
-If you want to reset SDKs to default version when leaving the project:
-`sdk env clear`
+If you want to reset SDKs to the default version when leaving the project:
+```
+sdk env clear
+```
 
-You have just checked out a new project from the repo and want to install missing SDK, then run:
-`sdk env install`
+You have just checked out a new project from the repo and want to install the missing SDK, then run:
+```
+sdk env install
+```
 
 ---
 
