@@ -7,8 +7,6 @@ This post is the first among a multipart series aimed at helping anyone preparin
 
 
 ## Kubectl
-CKAD
-
 Kubectl is a primary tool to interact with Kubernetes clusters over the command line. 
 
 Using `kubectl` you can deploy apps, install and manage resources, and view logs. 
@@ -213,7 +211,7 @@ kubectl delete pod hazelcast
 --- 
 ## Summary
 
-This post covers only a tiny portion of commands from the `kubectl` universe. Nonetheless, this post provides a quick insight into the fundamental ways you can interact with your cluster. 
+This post covers only a tiny portion of commands from the `kubectl` universe. Nonetheless, this post provides a quick insight into the fundamental ways you can interact with your Kubernetes cluster. 
 
 There are many more `kubectl` commands that will make you more productive in managing a k8s cluster. 
 
