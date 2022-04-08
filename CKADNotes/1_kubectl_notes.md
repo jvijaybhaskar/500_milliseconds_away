@@ -3,7 +3,7 @@ The Certified Kubernetes Application Developer (CKAD) program has been developed
 
 The primary objective of the exam is to certify that users can design, build, configure, and expose cloud native applications for Kubernetes.
 
-This <><><<>><><>
+This post is the first among a multipart series aimed at helping anyone preparing for CKAD exams. To kick off the series, I thought of covering one of the most commonly used tools while managing a Kubernetes cluster. 
 
 
 ## Kubectl
@@ -13,9 +13,9 @@ Kubectl is a primary tool to interact with Kubernetes clusters over the command 
 
 Using `kubectl` you can deploy apps, install and manage resources, and view logs. 
 
-**If you are looking for a detailed list of commands and options available for you, I strongly recommend you look at [kubectl cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) on the Kubernetes website.** 
-
 This post only covers the different options available for you to interact with resources on the cluster. 
+
+**If you are looking for a detailed list of commands and options available for you, I strongly recommend you look at [kubectl cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) on the Kubernetes website.** 
 
 > NOTE: Remember, when in doubt, always use `kubectl help` on your command line. 
 
@@ -85,7 +85,7 @@ $ kubectl describe pod hybrid_pod
 
 ---
 
-## More useful commands
+## Useful commands
 
 Kubectl offers more commands to manage k8s objects. This section covers a few:
 
@@ -137,6 +137,72 @@ Unlike replace, the apply command updates an existing object incrementally or in
 # If the object does not exist, this command behaves like a create command. 
 kubectl apply -f pod.yaml
 ```
+
+
+
+
+---
+
+## Lets get hands dirty!
+
+### Run a pod
+
+```sh
+$ kubectl run hazelcast --image=hazelcast/hazelcast --restart=Never \
+    --port=5701 --env="DNS_DOMAIN=cluster" --labels="app=hazelcast,env=prod"
+
+```
+
+### Get pod information 
+
+```md
+$ kubectl get pods
+
+$ kubectl get pods hazelcast
+
+$ kubectl describe pods hazelcast
+
+$ kubectl describe pods hazelcast | grep Image:
+
+```
+
+### Access logs
+Errors may occur while running an app in a container. Here is how you can get the logs/
+
+```sh
+
+$ kubectl logs hazelcast
+
+# Want to stream the logs
+$ kubectl logs hazelcast -f 
+
+```
+> TIP: Restarted the container and want logs from previous container user `-p` flag. 
+
+
+
+
+### Running a command with in the container
+
+ 
+Below command opens up an interactive shell to proble th container running inside the pod
+
+```sh
+
+$ kubectl exec -it hazelcast -- /bin/sh
+
+```
+
+> TIP: if you just want to run a command on the container and get the results back remove the `-it` flag
+
+### Cleanup
+
+```
+
+$ kubectl delete pod hazelcast
+
+```
+
 
 --- 
 ## Summary
