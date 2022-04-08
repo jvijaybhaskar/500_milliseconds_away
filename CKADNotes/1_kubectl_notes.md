@@ -26,7 +26,7 @@ This post only covers the different options available for you to interact with r
 ```sh
 
 # Usage pattern
-$ kubectl [command] [TYPE] [NAME] [flags]
+kubectl [command] [TYPE] [NAME] [flags]
 
 # command: verbs like get, create, delete, and more that convey the action you want to perform on a object/resource. 
 
@@ -48,7 +48,7 @@ You can use `kubectl run` or `kubectl create` to create an object on the fly.
 
 ```sh
 
-$ kubectl run frontend --image-nginx --restart=Never --port=80
+kubectl run frontend --image-nginx --restart=Never --port=80
 
 ```
 
@@ -64,7 +64,7 @@ This approach needs a manifest file (mostly a YAML file) to create an object dec
 Additionally, you can version control the YAML files for future audits or rollbacks.
 
 ```sh
-$ kubectl create -f pod.yaml
+kubectl create -f pod.yaml
 ```
 
 
@@ -74,13 +74,13 @@ In this approach, you start by using the imperative method to produce a manifest
 
 ```sh
 # Notice the use of --dry-run and -o yaml flag
-$ kubectl run frontend --image=ngingx --restart=Never --port=80 -o yaml --dry-run=client > hybrid_pod.yaml
+kubectl run frontend --image=ngingx --restart=Never --port=80 -o yaml --dry-run=client > hybrid_pod.yaml
 
 # Edit and save the YAML file and run the below command to create an object
-$ kubectl create -f hybrid_pod.yaml
+kubectl create -f hybrid_pod.yaml
 
 # Describe the pod you just created
-$ kubectl describe pod hybrid_pod
+kubectl describe pod hybrid_pod
 ```
 
 ---
@@ -96,10 +96,10 @@ You may want to delete an object for n number of reasons. For this purpose, you 
 ```sh
 
 # This command allows you to delete an object by providing its names
-$ kubectl delete pod frontend
+kubectl delete pod frontend
 
 # This commands deletes an object by referring to the manifest file used to create it.
-$ kubectl delete -f pod.yaml
+kubectl delete -f pod.yaml
 
 ```
 
@@ -148,38 +148,36 @@ kubectl apply -f pod.yaml
 ### Run a pod
 
 ```sh
-$ kubectl run hazelcast --image=hazelcast/hazelcast --restart=Never \
+kubectl run hazelcast --image=hazelcast/hazelcast --restart=Never \
     --port=5701 --env="DNS_DOMAIN=cluster" --labels="app=hazelcast,env=prod"
 
 ```
 
-### Get pod information 
+### Get pod information you just created
 
 ```md
-$ kubectl get pods
+kubectl get pods
 
-$ kubectl get pods hazelcast
+kubectl get pods hazelcast
 
-$ kubectl describe pods hazelcast
+kubectl describe pods hazelcast
 
-$ kubectl describe pods hazelcast | grep Image:
+kubectl describe pods hazelcast | grep Image:
 
 ```
 
-### Access logs
+### Access logs generated in a container
 Errors may occur while running an app in a container. Here is how you can get the logs/
 
 ```sh
 
-$ kubectl logs hazelcast
+kubectl logs hazelcast
 
 # Want to stream the logs
-$ kubectl logs hazelcast -f 
+kubectl logs hazelcast -f 
 
 ```
 > TIP: Restarted the container and want logs from previous container user `-p` flag. 
-
-
 
 
 ### Running a command with in the container
@@ -189,7 +187,8 @@ Below command opens up an interactive shell to proble th container running insid
 
 ```sh
 
-$ kubectl exec -it hazelcast -- /bin/sh
+kubectl exec -it hazelcast -- /bin/sh
+
 
 ```
 
@@ -199,7 +198,7 @@ $ kubectl exec -it hazelcast -- /bin/sh
 
 ```
 
-$ kubectl delete pod hazelcast
+kubectl delete pod hazelcast
 
 ```
 
