@@ -7,7 +7,7 @@ This post is the first among a multipart series aimed at helping anyone preparin
 
 
 ## Kubectl
-
+CKAD
 
 Kubectl is a primary tool to interact with Kubernetes clusters over the command line. 
 
@@ -153,12 +153,17 @@ kubectl run hazelcast --image=hazelcast/hazelcast --restart=Never \
 
 ```
 
-### Get pod information you just created
+### Get pod status
 
 ```md
 kubectl get pods
 
 kubectl get pods hazelcast
+```
+
+### Get to know more about the pod
+
+```sh
 
 kubectl describe pods hazelcast
 
@@ -173,11 +178,12 @@ Errors may occur while running an app in a container. Here is how you can get th
 
 kubectl logs hazelcast
 
-# Want to stream the logs
-kubectl logs hazelcast -f 
-
 ```
-> TIP: Restarted the container and want logs from previous container user `-p` flag. 
+
+> TIP: 
+> Restarted the container and want logs from previous container? Use `-p` flag.
+> 
+> Want to stream the logs? Use the `-f` flag
 
 
 ### Running a command with in the container
@@ -189,18 +195,19 @@ Below command opens up an interactive shell to proble th container running insid
 
 kubectl exec -it hazelcast -- /bin/sh
 
-
 ```
 
 > TIP: if you just want to run a command on the container and get the results back remove the `-it` flag
 
+
 ### Cleanup
 
 ```
-
 kubectl delete pod hazelcast
 
 ```
+
+
 
 
 --- 
@@ -222,3 +229,6 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 CKAD Study guide
 https://learning.oreilly.com/library/view/certified-kubernetes-application/9781492083726/ 
+
+Additional examples
+https://kubebyexample.com
