@@ -5,12 +5,13 @@ In this demonstration, we will be intercepting a Spring-boot microservice-based 
 
 The traffic to a service (on a k8s cluster) will be intercepted and redirected to a corresponding service running in a local development environment. 
 
-This demo helps grasp a scenario that allows developers to debug a service without building and deploying it onto the cluster.
+This post helps demonstrate a usecase that allows developers to debug a microservice service locally without building and deploying it onto the cluster.
 
 > **NOTE:** The code for this demo has been adapted from the distributed version of the [Spring PetClinic for Cloud Foundry and Kubernetes.](https://github.com/spring-petclinic/spring-petclinic-cloud)
 
+![](2022-04-11-22-24-31.png)
 
-![](2022-04-11-21-47-10.png)
+
 
 ## Set up k8s cluster
 
@@ -166,6 +167,7 @@ Now it is time to intercept the `vets-service` and `customers-service` on the cl
 
 > NOTE: To install Telepresence, please refer to latest installation instructions on https://www.telepresence.io/
 
+![](2022-04-11-21-47-10.png)
 
 ```sh
 # Connect to the remote cluster from the localhost.
@@ -270,8 +272,9 @@ Get the cluster ip of the `api-gateway` service by running the below command and
 $ kubectl get svc -n spring-petclinic api-gateway
 ```
 
+At this point the traffic intended for the intercepted service is rediredted to you localhost, thus allowing you to debug and continue developing locally while the bulk of the application is on the cluster!
 
-## Intercept using Telepresence
+## Time to clean up
 
 If you are done, it is time to do some clean-up. 
 
