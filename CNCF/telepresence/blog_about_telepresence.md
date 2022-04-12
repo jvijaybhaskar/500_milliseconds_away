@@ -1,4 +1,4 @@
-## Pain points while developing distributed applications
+## Challenges and Pain points while developing distributed applications
 
 Moving to a Cloud-native, microservice-based distributed system architecture means adopting new development and delivery workflow.
 
@@ -57,9 +57,7 @@ The pod then proxies data from the Kubernetes environment (e.g., TCP connections
 
 This proxy can then intercept traffic meant for the service and reroute it to a local copy, ready for further (local) development.
 
-> For more information on Context propogation and Intercepts, please refer to the detailed documentaion maintained by the opensource community:
-> * [Context propogation](https://www.telepresence.io/docs/latest/concepts/context-prop/)
-> * [Intercepts](https://www.telepresence.io/docs/latest/reference/intercepts)
+> For more information on Context propogation and Intercepts, please refer to the detailed documentaion maintained by the opensource community: [Context propogation](https://www.telepresence.io/docs/latest/concepts/context-prop/), [Intercepts](https://www.telepresence.io/docs/latest/reference/intercepts)
 
 ---
 
@@ -100,6 +98,11 @@ To get a better understanding, feel free to read through the companion post that
 
 ## References
 
+
+### Telepresence 
+https://www.telepresence.io/
+https://www.getambassador.io/products/telepresence/
+
 ### Alternative to Telepresence
 https://thenewstack.io/kubernetes-infrastructure-know-the-inner-dev-loop/
 
@@ -109,9 +112,6 @@ https://gefyra.dev/
 Unikube
 https://unikube.io/
 
-### Telepresence 
-https://www.telepresence.io/
-https://www.getambassador.io/products/telepresence/
 
 ### Open telemetry
 https://opentelemetry.lightstep.com/core-concepts/context-propagation/
