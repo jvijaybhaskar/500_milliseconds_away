@@ -69,3 +69,11 @@ Once a unique tracking number is available, the systems on the supply chain star
 
 
 
+
+
+---
+
+## References
+
+https://opentelemetry.io/
+https://opensourcelive.withgoogle.com/events/opentelemetry-day-2022
