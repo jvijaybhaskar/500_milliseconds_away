@@ -1,9 +1,10 @@
+# Interacting with Kubernetes cluster
 
 The Certified Kubernetes Application Developer (CKAD) program has been developed by the Cloud Native Computing Foundation (CNCF) to help expand the Kubernetes ecosystem.
 
 The primary objective of the exam is to certify that users can design, build, configure, and expose cloud native applications for Kubernetes.
 
-This post is the first among a multipart series aimed at helping anyone preparing for CKAD exams. To kick off the series, I thought of covering one of the most commonly used tools while managing a Kubernetes cluster. 
+> This post is the first among a multipart series aimed at helping anyone preparing for CKAD exams. To kick off the series, I thought of covering one of the most commonly used tools while managing a Kubernetes cluster. 
 
 
 ## Kubectl
@@ -16,6 +17,7 @@ This post only covers the different options available for you to interact with r
 **If you are looking for a detailed list of commands and options available for you, I strongly recommend you look at [kubectl cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) on the Kubernetes website.** 
 
 > NOTE: Remember, when in doubt, always use `kubectl help` on your command line. 
+
 
 ---
 
@@ -146,7 +148,7 @@ kubectl apply -f pod.yaml
 ### Run a pod
 
 ```sh
-kubectl run hazelcast --image=hazelcast/hazelcast --restart=Never \
+kubectl run ghost_blog --image=hazelcast/hazelcast --restart=Never \
     --port=5701 --env="DNS_DOMAIN=cluster" --labels="app=hazelcast,env=prod"
 
 ```

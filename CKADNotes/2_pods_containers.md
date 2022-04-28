@@ -29,25 +29,17 @@ The artifact that gets generated at the end of the conterization process is an *
 
 
 ---
-
-## Ready for a hands on ? 
-
-<@TODO: COnterize an application using docker commands/push to a registry and run > 
-
-
----
 ## Pod lifecycle 
 
-Essensially Kubernets is a state engine <@TODO: Link to what it is>. 
+Essensially Kubernetes is a state engine <@TODO: Link to what it is>. 
+
 The control loops mechanism  asyncronously monitors the statuses of objects and adjusts it to maintain the balance. 
 
 From application maintenance perspective it is important to understand the various phases of the Pod  lifecycle and act accordingly.
 
-
-
+<@TODO: Draw flowchar for below state>
 
 Pending | Running | Successed | Failed | Unknown
-
 
 
 ## Getting logs out of Pod
@@ -57,4 +49,14 @@ Pending | Running | Successed | Failed | Unknown
 ## Environemnt variables
 
 
+
+
 ## Namespaces
+
+
+
+---
+
+## Ready for a hands on ? 
+
+<@TODO: Conterize an application using docker commands/push to a registry and run > 
