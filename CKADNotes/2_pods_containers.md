@@ -46,12 +46,15 @@ Pending | Running | Successed | Failed | Unknown
 
 
 
-## Environemnt variables
+## Passing Environemnt variables & Arguments in a pod
 
+Controlling runtime behavior using environment variables is common practice. 
 
 
 
 ## Namespaces
+
+Namespaces help avoid naming collisions and allows you to organize your resources. Namespaces are a way to group resources together. Once the namespace is created, you can use it to create resources.
 
 
 
