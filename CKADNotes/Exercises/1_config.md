@@ -71,7 +71,7 @@ kubectl exec -it hazelcast -- env
 ```
 
 
-### Mounting a `ConfigMap` as a volume
+## Mounting a `ConfigMap` as a volume
 
 ```sh
 apiVersion: v1
@@ -106,5 +106,92 @@ cat /etc/config/db_url
 cat /etc/config/service_id
 ```
 
+
+----
+
+
+## Creating `secret`
+
+```sh
+# create a secret using literal values
+kubectl create secret generic hazelcast-secret --from-literal=pwd=!qwert09 
+```
+
+
+```sh
+# create secret by specifing files containing environment variables
+
+kubectl create secret generic hazelcast-secret --from-env-file=secret-config.env
+```
+
+> Note: You can also create a secret declaratively using the `--from-file` flag. However, you need to encode the secret values in the file.
+
+```sh
+echo -n '!qwert09' | base64
+
+```
+
+```yaml
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: hazelcast-secret
+type: Opaque
+data:
+  pwd: IXF3ZXJ0MDk=
+```
+
+----
+
+## Consuming a secret as environment variables
+
+
+Here is a sample Pod that uses a secret to connect to a database. The key-value pairs are injected into the container as environment variables.
+
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hazelcast
+spec:
+    containers:
+    - name: hazelcast
+        image: hazelcast/hazelcast
+        envFrom:
+        - secretRef:
+            name: hazelcast-secret
+            optional: true
+```
+
+
+```sh
+kubectl exec hazelcast -- env
+
+# The Base64 encoded value of the secret is decoded and displayed
+```
+
+
+
+## Consuming a secret as a volume
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+    name: hazelcast
+spec:
+    containers:
+    - name: hazelcast
+        image: hazelcast/hazelcast
+        volumeMounts:
+        - name: secret-volume
+        mountPath: /etc/config
+    volumes:
+    - name: secret-volume
+    secret:
+        secretName: hazelcast-secret
+```
 
 ----

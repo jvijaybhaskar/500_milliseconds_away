@@ -27,11 +27,21 @@ To resolve this in Kubernetes, there are two primitives `ConfigMaps` and `Secret
 
 ----
 
-Now onto `Secret`.
+Now onto `Secret`
 
 
+Creating a `Secret` is a bit more involved. You will have to specify an additional subcommand to specify options for the `Secret` to be created.
+
+The options are: `generic`, `docker-registry`, `tls`. 
+The most commonly used option is generic and the process is very similar to the process of creating a `ConfigMap`.
 
 
+Consuming a `Secret` is similar to consuming a `ConfigMap`. All you have to within the pod definition is to specify the `envFrom.secretRef.name`. The data is then injected as environment variables.
+
+> NOTE: Once loaded the data is stored in memory and not in the file system. Also the value is Base64 decoded and available as a string within the container. 
+
+
+----
 
 
 
